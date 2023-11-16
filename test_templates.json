@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "655527d918cc2493b01b400c"
+  },
+  "user_name": "text",
+  "birth_date": "date",
+  "phone_number": "phone",
+  "name": "user template"
+},
+{
+  "_id": {
+    "$oid": "655528a918cc2493b01b400d"
+  },
+  "name": "user template with email",
+  "user_name": "text",
+  "birth_date": "date",
+  "phone_number": "phone",
+  "email_address": "email"
+},
+{
+  "_id": {
+    "$oid": "6555c9bd3a34ab022842b7d1"
+  },
+  "description": "text",
+  "order_date": "date",
+  "contact_number": "phone",
+  "name": "order template"
+}]

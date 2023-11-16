@@ -1,0 +1,106 @@
+{
+    "openapi": "3.0.2",
+    "info": {"title": "FastAPI", "version": "0.1.0"},
+    "paths": {
+        "/api/v1/get_form": {
+            "post": {
+                "tags": ["Form"],
+                "summary": "Get Form",
+                "operationId": "get_form_api_v1_get_form_post",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "#/components/schemas/TemplateNameResponse"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/SpecifiedFormFieldsResponse"
+                                        }
+                                    ],
+                                    "title": "Response 200 Get Form Api V1 Get Form Post"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "405": {
+                        "description": "Method Not Allowed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "HTTPErrorResponse": {
+                "properties": {"message": {"type": "string", "title": "Message"}},
+                "type": "object",
+                "required": ["message"],
+                "title": "HTTPErrorResponse"
+            },
+            "SpecifiedFormFieldsResponse": {
+                "properties": {
+                    "result": {
+                        "additionalProperties": {"type": "string"},
+                        "type": "object",
+                        "title": "Result",
+                        "description": "Contains field name and type.",
+                        "example": "{'field': 'text'}"
+                    }
+                },
+                "type": "object",
+                "required": ["result"],
+                "title": "SpecifiedFormFieldsResponse"
+            },
+            "TemplateName": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "Name",
+                        "description": "Template form name",
+                        "example": "Order Form"
+                    }
+                },
+                "type": "object",
+                "required": ["name"],
+                "title": "TemplateName"
+            },
+            "TemplateNameResponse": {
+                "properties": {"result": {"$ref": "#/components/schemas/TemplateName"}},
+                "type": "object",
+                "required": ["result"],
+                "title": "TemplateNameResponse"
+            }
+        }
+    }
+}

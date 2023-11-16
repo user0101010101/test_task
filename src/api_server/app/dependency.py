@@ -1,0 +1,4 @@
+from form_template_obtainer.domain import usecases
+
+get_form_template_name_usecase: usecases.GetFormTemplateNameUsecase
+specify_from_fields_usecase: usecases.SpecifyFormFieldsUsecase

@@ -6,15 +6,28 @@ def get_form(params: dict[str, str]):
     return resp.json()["result"]
 
 
-params = {
-    "contact_number": "+7 999 999 99 99",
-    "order_date": "1990-02-11"
-}
+params_list = [
+    {
+        "contact_number": "+7 999 999 99 99",
+        "order_date": "1990-02-11"
+    },
 
-params = {
-    "contact_number": "+7 999 999 99 99",
-    "order_date": "1990-02-11",
-    "description": "aaa"
-}
-result = get_form(params)
+    {
+        "contact_number": "+7 999 999 99 99",
+        "order_date": "1990-02-11",
+        "description": "aaa"
+    },
+    {
+        "user_name": "aboba",
+        "phone_number": "+7 999 999 99 99",
+        "birth_date": "02.11.1999",
+    },
+    {
+        "user_name": "aboba",
+        "phone_number": "+7 999 999 99 99",
+        "birth_date": "02.11.1999",
+        "email_address": "aboba@gmail.com"
+    }
+]
+result = get_form(params_list[0])
 print(result)
